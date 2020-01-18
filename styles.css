@@ -28,7 +28,7 @@ ul{
 }
 
 li{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 20px;
     background: #ddd;
     font-size: 20px;
@@ -60,7 +60,7 @@ li div{
     color: #e5a00d;
 }
 
-form input, select{
+#add-request-form input, #add-request-form select{
     float: left;
     width: 38%;
     border: 0;
@@ -76,13 +76,13 @@ input:focus{
     outline-color: #e5a00d;
 }
 
-form:after{
+#add-request-form:after{
     content: '';
     clear: both;
     display: block;
 }
 
-button{
+#add-request-form button{
     overflow: hidden;
     border: 0;
     background: #282a2d;
@@ -91,8 +91,8 @@ button{
     height: 80px;
     border: 1px #e5a00d solid;
     box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.85em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.9em;
     letter-spacing: 1px;
     color: #e5a00d;
     position: absolute;
@@ -100,13 +100,74 @@ button{
     right: 0;
     border-radius: 10px 120px 10px 10px;
 }
-form{
+#add-request-form{
     position: relative;
 }
-button:hover{
+#add-request-form button:hover{
     color:#282a2d;
     background: #e5a00d;
 }
 a{
+    color: #a5500d;
+}
+#legende{ 
     color: #e5a00d;
+    text-decoration: underline;
+    border: none;
+    background-color: #383a3d;
+    font-size: 0.8em;
+    text-align: right;
+    margin-left: 70%;
+}
+
+.legendePopup{
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: none;
+}
+.legendePopup-content{
+    margin: 10% auto;
+    width: 70%;
+    min-width: 500px;
+    background-color: #383a3d;
+    border: 1px solid #e5a00d;
+    border-radius: 10px;
+    color: #eee;
+    position: relative;
+}
+.legendeGrid{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.legendePopup-content img{
+    max-width: 100px;
+    max-height: 100px;
+    padding: 20px;
+}
+.legendePopup-content h2{
+    color: #e5a00d;
+    padding: 20px 10px 10px 10px;
+    widows: 100%;
+    text-align: center;
+    font-size: 1.5em;
+}
+.closePopup{
+    position: absolute;
+    top: 5;
+    right: 15;
+    font-size: 3.5em;
+    font-weight: bold;
+    transform: rotate(45deg);
+    background-color: rgba(0, 0, 0, 0);
+    color: #e5a00d;
+    cursor: pointer;
+    border: none;
 }

@@ -118,3 +118,15 @@ db.collection('requests').orderBy('date').onSnapshot(snapshot => {
         }
     });
 });
+
+// pop up voor legende
+document.querySelector('#legende').addEventListener('click',
+    function() {
+        document.querySelector('.legendePopup').style.display = 'flex';
+    }
+);
+document.querySelector('.closePopup').addEventListener('click',
+    function() {
+        document.querySelector('.legendePopup').style.display = 'none';
+    }
+);
