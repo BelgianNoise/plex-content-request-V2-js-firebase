@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Plex Content Request</h1>
+        <div class="content">
+            <form id="add-request-form">
+                <input type="text" name="requester" placeholder="Uw naam">
+                <input type="text" name="content" placeholder="Naam van film of serie">
+                <input type="text" name="imdblink" placeholder="Link naar imdb(optioneel)">
+                <select id="sortDropdown">
+                    <option value="Film">Film</option>
+                    <option value="Serie" selected="selected">Serie</option>
+                </select>
+                <button>Aanvraag Indienen</button>
+            </form>
+            <ul id="request-list"></ul>
+        </div>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+              apiKey: "AIzaSyAoc0csSXgLhTHH9AcOyzJHWeLG543-dIo",
+              authDomain: "plex-content-request.firebaseapp.com",
+              databaseURL: "https://plex-content-request.firebaseio.com",
+              projectId: "plex-content-request",
+              storageBucket: "plex-content-request.appspot.com",
+              messagingSenderId: "881136620189",
+              appId: "1:881136620189:web:c1256f812b95c10680fa74",
+              measurementId: "G-BFDN59PGLZ"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true }); 
+          </script>
+        <script src="index.js"></script>
+    </body>
+</html>

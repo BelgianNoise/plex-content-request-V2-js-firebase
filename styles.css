@@ -1,0 +1,112 @@
+body{
+    background: #282a2d;
+    font-family: ubuntu;
+}
+
+h1{
+    color: #e5a00d;
+    font-size: 64px;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.content{
+    background: #383a3d;
+    max-width: 960px;
+    margin: 30px auto;
+    padding:  20px 30px;
+    border-radius: 10px 120px 10px 10px;
+    border: #e5a00d solid 1px;
+    box-shadow: 1px 3px 5px rgba(5,5,5,1 )
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    background-color: #fff;
+}
+
+li{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background: #ddd;
+    font-size: 20px;
+    color: #000;
+    position: relative;
+    border-bottom: 1px solid #e5a00d;
+}
+
+li:nth-child(even){
+    padding: 20px;
+    background: #eee;
+}
+
+li span{
+    display: block;
+    padding-bottom: 3px;
+}
+
+li div{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    background: rgba(20,20,20,0.6);
+    width: 40px;
+    text-align: center;
+    padding: 10px 0;
+    font-weight:  bold;
+    cursor:  pointer;
+    color: #e5a00d;
+}
+
+form input, select{
+    float: left;
+    width: 38%;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    margin: 1% 1%;
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+input:focus{
+    outline-color: #e5a00d;
+}
+
+form:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+button{
+    overflow: hidden;
+    border: 0;
+    background: #282a2d;
+    padding: 10px 10px 10px 0px;
+    width: 18%;
+    height: 80px;
+    border: 1px #e5a00d solid;
+    box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    color: #e5a00d;
+    position: absolute;
+    bottom: 20;
+    right: 0;
+    border-radius: 10px 120px 10px 10px;
+}
+form{
+    position: relative;
+}
+button:hover{
+    color:#282a2d;
+    background: #e5a00d;
+}
+a{
+    color: #e5a00d;
+}
