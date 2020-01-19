@@ -24,7 +24,8 @@ h1{
 ul{
     list-style-type: none;
     padding: 0;
-    background-color: #fff;
+    background-color: #383a3d;
+    margin: 10px 20px;
 }
 
 li{
@@ -34,7 +35,9 @@ li{
     font-size: 1.5em;
     color: #000;
     position: relative;
-    border-bottom: 1px solid #e5a00d;
+    border-bottom: 2px solid #e5a00d;
+    margin-bottom: 20px;
+    box-shadow: 15px 10px #222;
 }
 
 li:nth-child(even){
@@ -244,6 +247,7 @@ a{
     font-size: 1.5em;
     border-radius: 2px;
     cursor: pointer;
+    box-shadow: 5px 5px #222;
 }
 .login{
     background-color: #282a2d;
@@ -286,4 +290,40 @@ a{
     margin: 0;
     padding: 2px 0;
     cursor: pointer;
+}
+
+.err-field, .mess-field{
+    margin: 10px auto;
+    width: 60%;
+    padding: 10px 30px;
+    border-radius: 10px 150px 10px 10px;
+    box-shadow: 5px 5px #222;
+    display: none;
+    font-size: 1.3em;
+    grid-template-columns: 20% 80%;
+}
+.err-field{
+    border: 1.5px red solid;
+    background-color: rgb(247, 196, 204);
+}
+.mess-field{
+    border: 1.5px green solid;
+    background-color: rgb(202, 248, 202);
+}
+.errors, .messages{
+    padding-left: 20px;
+}
+.gr{
+    font-size: 5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+.err-field .gr{
+    color: red;
+    border-right: 1px red solid;
+}
+.mess-field .gr{
+    color: green;
+    border-right: 1px green solid;
 }

@@ -1,5 +1,9 @@
 const requestList = document.querySelector('#request-list');
 const form = document.querySelector('#add-request-form');
+let pending = '#98BADD';
+let finished = '#99DAB8';
+let nocando = '#F8A3A6';
+let progress = '#FEFA99';
 
 // create element & render cafe
 function renderRequest(doc){
@@ -38,21 +42,21 @@ function renderRequest(doc){
     li.style.backgroundPosition = 'right';
     li.style.backgroundSize = '60%';
     switch (doc.data().status){
-        case '0': // not started
+        case '0': // pending
             li.style.backgroundImage = 'url(\'img/pending_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(0,84,165,0.4)'
+            li.style.backgroundColor = pending;
             break;
         case '1': // finished
             li.style.backgroundImage = 'url(\'img/finished_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(0,166,84,0.4)'
+            li.style.backgroundColor = finished;
             break;
         case '-': // no can do
             li.style.backgroundImage = 'url(\'img/no_can_do_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(237,27,36,0.4)'
+            li.style.backgroundColor = nocando;
             break;
         case 'b': // bezig
             li.style.backgroundImage = 'url(\'img/busy_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(254,242,0,0.4)'
+            li.style.backgroundColor = progress;
             break;
         default:
     }
@@ -110,18 +114,30 @@ function renderRequest(doc){
     requestList.prepend(li);
 }
 
-// getting data
-// db.collection('cafes').orderBy('city').get().then(snapshot => {
-//     snapshot.docs.forEach(doc => {
-//         renderCafe(doc);
-//     });
-// });
-
 // saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    let req = form.requester.value;
+    let cont = form.content.value;
+    let imdb = form.imdblink.value;
     var select = document.getElementById("sortDropdown");
     var strSort = select.options[select.selectedIndex].value;
+
+    // validatie
+    let errArr = validateInput(req, cont, imdb, strSort);
+    var errField = document.querySelector('.err-field');
+    var errList = document.querySelector('.errors');
+    if(errArr.length > 0){
+        errList.innerHTML = "";
+        errArr.forEach(element => {
+            var p = document.createElement('p');
+            p.textContent = element;
+            errList.appendChild(p);
+        });
+        errField.style.display = 'grid';
+        return;
+    }
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -131,9 +147,9 @@ form.addEventListener('submit', (e) => {
     today = yyyy + '-' + mm + '-' + dd;
 
     db.collection('requests').add({
-        requester: form.requester.value,
-        content: form.content.value,
-        imdblink: form.imdblink.value,
+        requester: req,
+        content: cont,
+        imdblink: imdb,
         sort: strSort,
         date: today,
         status: '0'
@@ -141,6 +157,14 @@ form.addEventListener('submit', (e) => {
     form.requester.value = '';
     form.content.value = '';
     form.imdblink.value = '';
+    errField.style.display = 'none';
+    var messField = document.querySelector('.mess-field');
+    var messList = document.querySelector('.messages');
+    var p = document.createElement('p');
+    p.textContent = "\"" + cont + "\" is toegevoegd aan de lijst!"
+    messList.appendChild(p);
+    messField.style.display = 'grid';
+    setTimeout(()=>messField.style.display = 'none',5000)
 });
 
 // real-time listener
@@ -158,24 +182,49 @@ db.collection('requests').orderBy('date').onSnapshot(snapshot => {
     });
 });
 
+function validateInput(requester, content, imdb, sort){
+    let err = [];
+    if(requester.toLowerCase().includes('niels') || requester.toLowerCase().includes('biels')){
+        err.push('BIELS BIELS BIELS BIELS BIELS BIELS BIELS BIELS BIELS BIELS BIELS');
+    }
+    if(requester.trim() == ""){
+        err.push('Je bent vergeten je naam in te geven!');
+    }
+    if(content.trim() == ""){
+        err.push('Je bent vergeten de naam van de film of serie in te geven!');
+    }
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol whatever dees is
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    if(!pattern.test(imdb) && imdb.trim() != ""){
+        err.push('De link die je hebt ingegeven is niet valide! (voorbeeld: https://www.imdb.com)');
+    }
+    if(sort.toLowerCase() != 'film' && sort.toLowerCase() != 'serie'){
+        err.push('Makker het is film of serie en niks anders eh flikker!!!');
+    }
+    return err;
+}
 function updateBackground(doc){
     let li = requestList.querySelector('[data-id=' + doc.id + ']');
     switch (doc.data().status){
-        case '0': // not started
+        case '0': // pending
             li.style.backgroundImage = 'url(\'img/pending_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(0,84,165,0.4)'
+            li.style.backgroundColor = pending;
             break;
         case '1': // finished
             li.style.backgroundImage = 'url(\'img/finished_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(0,166,84,0.4)'
+            li.style.backgroundColor = finished;
             break;
         case '-': // no can do
             li.style.backgroundImage = 'url(\'img/no_can_do_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(237,27,36,0.4)'
+            li.style.backgroundColor = nocando;
             break;
         case 'b': // bezig
             li.style.backgroundImage = 'url(\'img/busy_trans.jpg\')';
-            li.style.backgroundColor = 'rgba(254,242,0,0.4)'
+            li.style.backgroundColor = progress;
             break;
         default:
     }

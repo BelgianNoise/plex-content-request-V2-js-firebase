@@ -1,3 +1,2 @@
-input validatie
+filter voor lijst
 login en register implementeren
-status kunnen veranderen
