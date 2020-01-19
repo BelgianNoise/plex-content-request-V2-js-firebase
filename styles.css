@@ -47,17 +47,28 @@ li span{
     padding-bottom: 3px;
 }
 
-li div{
+li div, .update{
     position: absolute;
     top: 0;
     right: 0px;
     background: rgba(20,20,20,0.6);
     width: 40px;
     text-align: center;
-    padding: 10px 0;
+    padding: 6px 0;
     font-weight:  bold;
     cursor:  pointer;
     color: #e5a00d;
+    height: 27px;
+}
+.update{
+    top: 0;
+    right: 40px;
+    border-right: #a5500d 1px solid;
+    width: auto;
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 9px;
+    height: 21px;
 }
 
 #add-request-form input, #add-request-form select{
@@ -254,4 +265,25 @@ a{
     color: #e5a00d;
     cursor: pointer;
     border: none;
+}
+.drop{
+    width: 100%;
+    background-color: rgba(20,20,20,0.6);
+    display: none;
+}
+
+.update:hover .drop{
+    display: block;
+}
+.drop button{
+    background-color: rgba(20,20,20,0.6);;
+    color: #e5a00d;
+    border: none;
+    font-size: 1em;
+    border: #a5500d 1px solid;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 2px 0;
+    cursor: pointer;
 }
