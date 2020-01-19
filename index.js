@@ -36,7 +36,7 @@ function renderCafe(doc){
     // status
     li.style.backgroundRepeat = 'no-repeat';
     li.style.backgroundPosition = 'right';
-    li.style.backgroundSize = '70%';
+    li.style.backgroundSize = '60%';
     li.style.backgroundColor
     switch (doc.data().status){
         case '0': // not started

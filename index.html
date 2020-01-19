@@ -1,10 +1,12 @@
 <html>
     <head>
-        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <div class="knoppies">
+            <button class="login">Aanmelden</button>
+            <button class="signup">Registreren</button>
+        </div>
         <h1>Plex Content Request</h1>
         <div class="content">
             <form id="add-request-form">
@@ -20,7 +22,7 @@
             <button id="legende">Wat betekenen deze icoontjes?</button>
             <ul id="request-list"></ul>
         </div>
-        
+        <!-- LEGENDE POP UP -->
         <div class="legendePopup">
             <div class="legendePopup-content">
                 <h2>Wat betekenen deze icoontjes?</h2>
@@ -37,7 +39,40 @@
                 </div>
             </div>
         </div>
+
+        <!-- SIGN UP MODAL -->
+        <div id="modal-signup" class="modal">
+            <div class="signup-content">
+                <h2>Registreren</h2>
+                <button class="closePopupSignup">+</button>
+                <form id="signup-form">
+                    <label for="signup-username">Gebruikersnaam</label>
+                    <input type="text" id="signup-username" required />
+                    <label for="signup-password">Kies een wachtwoord</label>
+                    <input type="password" id="signup-password" required />
+                    <button class="signup-button">Registreer!</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- LOGIN MODAL -->
+        <div id="modal-login" class="modal">
+            <div class="login-content">
+                <h2>Aanmelden</h2>
+                <button class="closePopupLogin">+</button>
+                <form id="login-form">
+                    <label for="login-username">Gebruikersnaam</label>
+                    <input type="email" id="login-username" required />
+                    <label for="login-password">Uw wachtwoord</label>
+                    <input type="password" id="login-password" required />
+                    <button class="login-button">Aanmelden</button>
+                </form>
+            </div>
+        </div>
          
+        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
 
         <script>
             // Your web app's Firebase configuration
@@ -55,7 +90,9 @@
             firebase.initializeApp(firebaseConfig);
             const db = firebase.firestore();
             db.settings({ timestampsInSnapshots: true }); 
+            const auth = firebase.auth();
           </script>
+        <script src="auth.js"></script>
         <script src="index.js"></script>
     </body>
 </html>
