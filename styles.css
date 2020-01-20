@@ -203,7 +203,7 @@ a{
 .signup-content, .login-content{
     margin: 10% auto;
     width: 60%;
-    height: 60%;
+    height: auto;
     min-width: 500px;
     background-color: #383a3d;
     border: 1px solid #e5a00d;
@@ -238,8 +238,8 @@ a{
 
 .knoppies{
     position: absolute;
-    right: 10;
-    top: 10;
+    right: 20;
+    top: 20;
 }
 .knoppies button{
     border: #e5a00d 1px solid;
@@ -247,13 +247,9 @@ a{
     font-size: 1.5em;
     border-radius: 2px;
     cursor: pointer;
-    box-shadow: 5px 5px #222;
+    box-shadow: 5px -5px #000;
 }
 .login{
-    background-color: #282a2d;
-    color: #ddd;
-}
-.signup{
     background-color: #e5a00d;
     color: #fff;
 }

@@ -162,10 +162,10 @@ form.addEventListener('submit', (e) => {
     var messList = document.querySelector('.messages');
     messList.innerHTML = "";
     var p = document.createElement('p');
-    p.textContent = "\"" + cont + "\" is toegevoegd aan de lijst!"
+    p.textContent = "\"" + cont + "\" is toegevoegd aan de lijst!";
     messList.appendChild(p);
     messField.style.display = 'grid';
-    setTimeout(()=>messField.style.display = 'none',5000)
+    setTimeout(()=>messField.style.display = 'none',5000);
 });
 
 // real-time listener

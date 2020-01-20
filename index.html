@@ -4,8 +4,8 @@
     </head>
     <body>
         <div class="knoppies">
-            <button class="login">Aanmelden</button>
-            <button class="signup">Registreren</button>
+            <button class="login"></button>
+            <!-- <button class="signup">Registreren</button> -->
         </div>
         <h1>Plex Content Request</h1>
         <div class="err-field">
@@ -57,6 +57,8 @@
                 <form id="signup-form">
                     <label for="signup-username">Gebruikersnaam</label>
                     <input type="text" id="signup-username" required />
+                    <label for="signup-email">Email addres</label>
+                    <input type="text" id="signup-email" required />
                     <label for="signup-password">Kies een wachtwoord</label>
                     <input type="password" id="signup-password" required />
                     <button class="signup-button">Registreer!</button>
@@ -70,8 +72,8 @@
                 <h2>Aanmelden</h2>
                 <button class="closePopupLogin">+</button>
                 <form id="login-form">
-                    <label for="login-username">Gebruikersnaam</label>
-                    <input type="email" id="login-username" required />
+                    <label for="login-email">Email addres</label>
+                    <input type="email" id="login-email" required />
                     <label for="login-password">Uw wachtwoord</label>
                     <input type="password" id="login-password" required />
                     <button class="login-button">Aanmelden</button>
@@ -79,9 +81,9 @@
             </div>
         </div>
          
-        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
 
         <script>
             // Your web app's Firebase configuration
@@ -98,7 +100,6 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             const db = firebase.firestore();
-            db.settings({ timestampsInSnapshots: true }); 
             const auth = firebase.auth();
           </script>
         <script src="auth.js"></script>
