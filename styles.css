@@ -296,18 +296,19 @@ a{
     margin: 10px auto;
     width: 60%;
     padding: 10px 30px;
-    border-radius: 10px 150px 10px 10px;
+    border-radius: 2px;
     box-shadow: 5px 5px #222;
     display: none;
     font-size: 1.3em;
     grid-template-columns: 20% 80%;
+    box-shadow: 20px 15px #111;
 }
 .err-field{
-    border: 1.5px red solid;
+    border-bottom: 3px red solid;
     background-color: rgb(247, 196, 204);
 }
 .mess-field{
-    border: 1.5px green solid;
+    border-bottom: 3px green solid;
     background-color: rgb(202, 248, 202);
 }
 .errors, .messages{

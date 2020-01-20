@@ -160,6 +160,7 @@ form.addEventListener('submit', (e) => {
     errField.style.display = 'none';
     var messField = document.querySelector('.mess-field');
     var messList = document.querySelector('.messages');
+    messList.innerHTML = "";
     var p = document.createElement('p');
     p.textContent = "\"" + cont + "\" is toegevoegd aan de lijst!"
     messList.appendChild(p);
