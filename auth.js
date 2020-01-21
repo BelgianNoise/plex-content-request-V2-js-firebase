@@ -22,7 +22,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     } else {
         p.textContent = "Je bent succesvol afgemeld!";
     }
-
+    db.collection('requests').orderBy('date').get().then(function (querySnapshot) {
+        document.querySelector('#request-list').innerHTML = '';
+        querySnapshot.forEach(function (doc) {
+            renderRequest(doc);
+        });
+        }).catch(function (error) {
+            console.log(error);
+        });
     messList.appendChild(p);
     messField.style.display = 'grid';
     setTimeout(()=>messField.style.display = 'none',5000);

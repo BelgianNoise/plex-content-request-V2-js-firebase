@@ -1,3 +1,7 @@
+KAN BAN KAN
+------------------------------
 filter voor lijst
 de legende letterlijk maken
 error laten zien bij foute login gegevens
+ander font voor de titel
+form e beeke schoon make

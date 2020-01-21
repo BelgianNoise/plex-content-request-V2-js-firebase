@@ -61,55 +61,57 @@ function renderRequest(doc){
         default:
     }
 
-    // cross
-    let cross = document.createElement('div');
-    cross.textContent = 'x';
-    li.appendChild(cross);
-    // deleting data
-    cross.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute('data-id');
-        db.collection('requests').doc(id).delete();
-    });
+    if(firebase.auth().currentUser){
+        // cross
+        let cross = document.createElement('div');
+        cross.textContent = 'x';
+        li.appendChild(cross);
+        // deleting data
+        cross.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let id = e.target.parentElement.getAttribute('data-id');
+            db.collection('requests').doc(id).delete();
+        });
 
-    // update
-    let update = document.createElement('div');
-    update.className = 'update';
-    update.textContent = 'Verander status';
-    // drop down
-    let drop = document.createElement('div');
-    drop.className = 'drop';
-    let btn1 = document.createElement('button');
-    btn1.textContent = 'Finished';
-    btn1.addEventListener('click',(e)=>{
-        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
-        db.collection('requests').doc(id).update({status: '1'});
-    });
-    drop.appendChild(btn1);
-    let btn2 = document.createElement('button');
-    btn2.textContent = 'Pending...';
-    btn2.addEventListener('click',(e)=>{
-        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
-        db.collection('requests').doc(id).update({status: '0'});
-    });
-    drop.appendChild(btn2);
-    let btn3 = document.createElement('button');
-    btn3.textContent = 'No Can Do';
-    btn3.addEventListener('click',(e)=>{
-        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
-        db.collection('requests').doc(id).update({status: '-'});
-    });
-    drop.appendChild(btn3);
-    let btn4 = document.createElement('button');
-    btn4.textContent = 'In Progress...';
-    btn4.addEventListener('click',(e)=>{
-        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
-        db.collection('requests').doc(id).update({status: 'b'});
-    });
-    drop.appendChild(btn4);
-    update.appendChild(drop);
+        // update
+        let update = document.createElement('div');
+        update.className = 'update';
+        update.textContent = 'Verander status';
+        // drop down
+        let drop = document.createElement('div');
+        drop.className = 'drop';
+        let btn1 = document.createElement('button');
+        btn1.textContent = 'Finished';
+        btn1.addEventListener('click',(e)=>{
+            let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+            db.collection('requests').doc(id).update({status: '1'});
+        });
+        drop.appendChild(btn1);
+        let btn2 = document.createElement('button');
+        btn2.textContent = 'Pending...';
+        btn2.addEventListener('click',(e)=>{
+            let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+            db.collection('requests').doc(id).update({status: '0'});
+        });
+        drop.appendChild(btn2);
+        let btn3 = document.createElement('button');
+        btn3.textContent = 'No Can Do';
+        btn3.addEventListener('click',(e)=>{
+            let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+            db.collection('requests').doc(id).update({status: '-'});
+        });
+        drop.appendChild(btn3);
+        let btn4 = document.createElement('button');
+        btn4.textContent = 'In Progress...';
+        btn4.addEventListener('click',(e)=>{
+            let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+            db.collection('requests').doc(id).update({status: 'b'});
+        });
+        drop.appendChild(btn4);
+        update.appendChild(drop);
 
-    li.appendChild(update);
+        li.appendChild(update);
+    }
     // add to list
     requestList.prepend(li);
 }
