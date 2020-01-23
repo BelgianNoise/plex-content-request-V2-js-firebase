@@ -32,6 +32,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         });
     messList.appendChild(p);
     messField.style.display = 'grid';
+    window.removeEventListener('scroll', noScroll);
     setTimeout(()=>messField.style.display = 'none',5000);
 });
 
@@ -41,6 +42,8 @@ loginoutbtn.addEventListener('click', (e) => {
     if(!firebase.auth().currentUser){
         e.preventDefault();
         loginModal.style.display = 'flex';
+        document.body.scrollTop = 0;
+        window.addEventListener('scroll', noScroll);
     }else{
         e.preventDefault();
         auth.signOut();
