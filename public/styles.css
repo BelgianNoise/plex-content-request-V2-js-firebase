@@ -132,15 +132,6 @@ li div, .update{
 a{
     color: #a5500d;
 }
-#legende{ 
-    color: #a5500d;
-    text-decoration: underline;
-    border: none;
-    font-size: 1em;
-    text-align: right;
-    margin-left: 70%;
-    cursor: pointer;
-}
 
 .legendePopup{
     width: 100%;
@@ -329,4 +320,32 @@ a{
 .mess-field .gr{
     color: green;
     border-right: 1px green solid;
+}
+
+#filters{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 20fr;
+    width: 90%;
+    margin: auto;
+}
+#filters button{
+    padding: 0;
+    margin: 0;
+    border: none;
+    margin: 0 10px;
+}
+#filters button img{
+    width: 30px;
+    height: 30px;
+}
+#filters button:hover{
+    cursor: pointer;
+}
+
+#legende{
+    color: #a5500d;
+    text-decoration: underline;
+    font-size: 1em;
+    text-align: right;
+    cursor: pointer;
 }
