@@ -334,6 +334,9 @@ a{
     border: none;
     margin: 0 10px;
 }
+#filters button:not(:last-child){
+    opacity: 0.3;
+}
 #filters button img{
     width: 30px;
     height: 30px;

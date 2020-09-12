@@ -235,14 +235,16 @@ function validateInput(requester, content, imdb, sort) {
   }
   return err;
 }
-function filterHelper(filter) {
+function filterHelper(element, filter) {
   if (filters.includes(filter)) {
     const index = filters.indexOf(filter);
     if (index > -1) {
       filters.splice(index, 1);
     }
+    element.style.opacity = "0.3";
   } else {
     filters.push(filter);
+    element.style.opacity = "1";
   }
   updateReceived();
 }

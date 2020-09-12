@@ -34,10 +34,10 @@
             <hr>
             <span id="filters">
                 <p>Filter: </p>
-                <button onclick="filterHelper('1');"><img src="./img/finished_small.jpg"></button>
-                <button onclick="filterHelper('0');"><img src="./img/pending_small.jpg"></button>
-                <button onclick="filterHelper('b');"><img src="./img//busy_small.jpg"></button>
-                <button onclick="filterHelper('-');"><img src="./img/no_can_do_small.jpg"></button>
+                <button onclick="filterHelper(this, '1');"><img src="./img/finished_small.jpg"></button>
+                <button onclick="filterHelper(this, '0');"><img src="./img/pending_small.jpg"></button>
+                <button onclick="filterHelper(this, 'b');"><img src="./img//busy_small.jpg"></button>
+                <button onclick="filterHelper(this, '-');"><img src="./img/no_can_do_small.jpg"></button>
                 <button id="legende">Wat betekenen deze icoontjes?</button>
             </span>
             <ul id="request-list"></ul>
