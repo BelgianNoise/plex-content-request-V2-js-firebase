@@ -89,14 +89,14 @@ li div, .update{
     padding: 9px;
     height: 21px;
 }
-#add-request-form{
+.add-request-form{
     text-align: center;
     box-shadow: 0 0 20px rgba(0,0,0,0.8);
     border: 1px #383a3d solid;
     padding-bottom: 30px;
     padding-top: 30px;
 }
-#add-request-form input, #add-request-form select{
+.add-request-form input, .add-request-form select{
     float: left;
     width: 90%;
     border: 0;
@@ -109,13 +109,13 @@ li div, .update{
     margin: 10px 5%;
 }
 
-#add-request-form:after{
+.add-request-form:after{
     content: '';
     clear: both;
     display: block;
 }
 
-#add-request-form button{
+.add-request-form button{
     background: #e5a00d;
     padding: 20px;
     border: 1px #e5a00d solid;
@@ -125,7 +125,7 @@ li div, .update{
     cursor: pointer;
     margin-top: 10px;
 }
-#add-request-form button:hover{
+.add-request-form button:hover{
     color:#e5a00d;
     background: #282a2d;
 }
